@@ -2,7 +2,7 @@ import {TouchableOpacity, Text,Image} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 
-const PaymentsCard = ({title,imageSource}) => {
+const PaymentsCard = ({title,imageSource, isSelected, onSelect}) => {
     const [selectedMethod, setSelectedMethod] = useState(null);
     const handlePress = () =>{
         setSelectedMethod(title);
@@ -14,7 +14,7 @@ const PaymentsCard = ({title,imageSource}) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: 8,
-          }} onPress={() => handlePress({title})}>
+          }} onPress={onSelect}>
            <Ionicons name='checkmark-done-circle' size={24} color={selectedMethod === title ? 'green':'white'} />
            <Text className="text-[20px]">{title}</Text> 
            <Image source={imageSource}

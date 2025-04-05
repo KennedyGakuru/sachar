@@ -1,12 +1,14 @@
 import{View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, FlatList, ScrollView} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import ProductCard from '../components/ProductCard';
-import { categories,products,Colors } from 'constants';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { categories,products,Colors } from '../constants';
+import { DarkModeContext } from '../components/DarkModeContext';
 import { useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () =>{
   const {darkMode } = useContext(DarkModeContext);
+  const navigation = useNavigation();
     const handleSearch = () => {    
     }
 
@@ -32,7 +34,9 @@ const HomeScreen = () =>{
             </View>
             <View className="flex-row justify-between px-4 pt-4 ">
               <Text className={`text-3xl ${darkMode ? "text-white" : "text-black"}`}>Categories</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SeeAll')}>
               <Text className="color-[#75F94C]">See All</Text>
+              </TouchableOpacity>
             </View>
             <View className="pl-2 px-4 pt-4">
             <FlatList

@@ -3,10 +3,10 @@ import {View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView} from 'rea
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, clearFromCart } from 'redux/cartSlice';
-import CartItems from 'components/CartItems';
+import { removeFromCart, clearFromCart } from '../redux/cartSlice';
+import CartItems from '../components/CartItems';
 import { FlatList } from 'react-native-gesture-handler';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { DarkModeContext } from '../components/DarkModeContext';
 
 const CartScreen = () =>{
     const navigation = useNavigation();

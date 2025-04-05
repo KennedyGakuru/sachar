@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import HeartIcon from './HeartIcon';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToFavorites, removeFromFavorites } from 'redux/favoriteSlice';
+import { addToFavorites, removeFromFavorites } from '../redux/favoriteSlice';
 
 const ProductCard = ({ product}) => {
     const navigation = useNavigation();

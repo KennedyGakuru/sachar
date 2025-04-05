@@ -5,8 +5,8 @@ import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Haptics from "expo-haptics";
-import { DarkModeContext } from 'components/DarkModeContext';
-import PaymentsCard from 'components/PaymentCard';
+import { DarkModeContext } from '../components/DarkModeContext';
+import PaymentsCard from '../components/PaymentCard';
 
 const CheckOutScreen = () => {
     const navigation = useNavigation();

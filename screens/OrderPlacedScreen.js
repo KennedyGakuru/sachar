@@ -1,6 +1,6 @@
 import {View, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { DarkModeContext } from '../components/DarkModeContext';
 import { useContext } from 'react';
 
 const OrderPlacedScreen = () => {

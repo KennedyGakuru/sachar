@@ -1,6 +1,6 @@
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import { useDispatch } from 'react-redux';
-import { removeFromCart,updatedQuantity } from 'redux/cartSlice';
+import { removeFromCart,updatedQuantity } from '../redux/cartSlice';
 import { useContext, useState } from 'react';
 import { DarkModeContext } from './DarkModeContext';
 

@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import {SafeAreaView, View, Text, TouchableOpacity, TextInput, Alert,  ScrollView} from 'react-native';
 import {useState, useEffect, useContext} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { DarkModeContext } from '../components/DarkModeContext';
 
 
 const EditProfileScreen = () => {

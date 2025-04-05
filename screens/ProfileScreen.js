@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import {SafeAreaView, View, Text, TouchableOpacity, Image} from 'react-native';
-import ProfileTabs from 'components/ProfileTabs';
-import { DarkModeContext } from 'components/DarkModeContext';
+import ProfileTabs from '../components/ProfileTabs';
+import { DarkModeContext } from '../components/DarkModeContext';
 import { useContext } from 'react';
 
 const ProfileScreen = () =>{

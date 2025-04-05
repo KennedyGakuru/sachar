@@ -1,14 +1,13 @@
 import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
-import ProductCard from 'components/ProductCard';
-import { products } from 'constants'; 
+import ProductCard from '../components/ProductCard'; 
 import { FlatList } from 'react-native-gesture-handler';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromFavourites } from 'redux/favoriteSlice';
+import { removeFromFavourites } from '../redux/favoriteSlice';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useContext, useEffect } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { DarkModeContext } from '../components/DarkModeContext';
 
 
 const WishlistScreen = () => {

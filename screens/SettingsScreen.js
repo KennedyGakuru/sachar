@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { DarkModeContext } from 'components/DarkModeContext';
+import { DarkModeContext } from '../components/DarkModeContext';
 import { useContext } from 'react';
 import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 

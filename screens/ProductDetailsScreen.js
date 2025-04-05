@@ -2,10 +2,10 @@ import {View, Text, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from 'redux/cartSlice';
+import { addToCart } from '../redux/cartSlice';
 import { useEffect, useState } from 'react';
-import { addToFavorites, removeFromFavorites } from 'redux/favoriteSlice';
-import HeartIcon from 'components/HeartIcon';
+import { addToFavorites, removeFromFavorites } from '../redux/favoriteSlice';
+import HeartIcon from '../components/HeartIcon';
 
 
 
