@@ -8,14 +8,16 @@ import WishlistScreen from './screens/WishlistScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ProductDetailsScreen from './screens/ProductDetailsScreen'
 import { Ionicons } from '@expo/vector-icons';
-import store from 'redux/store';
+import store from './redux/store';
 import { Provider } from 'react-redux';
 import CheckOutScreen from './screens/CheckOutScreen';
 import OrderPlacedScreen from './screens/OrderPlacedScreen';
-import EditProfileScreen from 'screens/EditProfileScreen';
-import SettingsScreen from 'screens/SettingsScreen';
-import { DarkModeProvider } from 'components/DarkModeContext';
-
+import EditProfileScreen from './screens/EditProfileScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import { DarkModeProvider } from './components/DarkModeContext';
+import SeeAllScreen from './screens/SeeAllScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const Tab = createBottomTabNavigator ();
 const Stack = createStackNavigator ();
@@ -53,17 +55,20 @@ const App = () => {
   return(
     <Provider store={store}>
       <DarkModeProvider>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="HomeTabs" component={HomeTabs} options={{ headerShown: false }}/>
-        <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="CheckOut" component={CheckOutScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="OrderPlaced" component={OrderPlacedScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }}/>
-        <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }}/>
-      </Stack.Navigator>
-    </NavigationContainer>
-    </DarkModeProvider>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Login"> 
+            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="HomeTabs" component={HomeTabs} options={{ headerShown: false }}/>
+            <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="CheckOut" component={CheckOutScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="OrderPlaced" component={OrderPlacedScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="SeeAll" component={SeeAllScreen} options={{ headerShown: false }}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </DarkModeProvider>
     </Provider>
   );
 };
