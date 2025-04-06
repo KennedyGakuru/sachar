@@ -18,6 +18,7 @@ import { DarkModeProvider } from './components/DarkModeContext';
 import SeeAllScreen from './screens/SeeAllScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import LoginScreen from './screens/LoginScreen';
+import VerifyEmailScreen from './screens/VerifyEmailScreen';
 
 const Tab = createBottomTabNavigator ();
 const Stack = createStackNavigator ();
@@ -59,6 +60,7 @@ const App = () => {
           <Stack.Navigator initialRouteName="Login"> 
             <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="VerifyEmail" component={VerifyEmailScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="HomeTabs" component={HomeTabs} options={{ headerShown: false }}/>
             <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="CheckOut" component={CheckOutScreen} options={{ headerShown: false }}/>

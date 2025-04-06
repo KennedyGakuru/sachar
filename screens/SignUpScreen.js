@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { supabase } from '../supabase';
 
  const SignUpScreen = () => {
         const [email, setEmail] = useState('');
@@ -8,14 +9,15 @@ import { useNavigation } from '@react-navigation/native';
         const [confirmPassword, setConfirmPassword] = useState('');
         const navigation = useNavigation();
 
-        const handleSignUp = () => {
-            if (password !== confirmPassword) {
-                Alert.alert('Error', 'Passwords do not match');
-                return;
-            }
-            // Add your sign-up logic here
+        const handleSignUp = async () => {
+            const { data, error} = await supabase.auth.signUp({email, password});
+            if (error) {
+                Alert.alert( 'SignUp Failed', error.message);
+                
+            } else{
             Alert.alert('Success', 'Account created successfully!');
             navigation.navigate('Login'); // Redirect to the Login screen
+            }
         };
 
         return (

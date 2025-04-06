@@ -19,29 +19,29 @@ const SettingsScreen = () => {
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>Settings </Text>
             </View>
             <View className=" p-10 ">
-                <View className='flex-row items-center mb-5'>
+                <View className='flex-row items-center mb-8'>
             <Ionicons name="notifications" size={24} color={darkMode ? "white" : "black"}/> 
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>  Notification</Text> 
                 </View>
-                <View className='flex-row items-center mb-5'>
-                    <TouchableOpacity onPress={toggleDarkMode} className="rounded-full bg-[#75F94C]">
-                    <Ionicons name={darkMode ? "moon" : "sunny"} size={24} color={darkMode ? "white" : "black"} />
+                <View className='flex-row items-center mb-8'>
+                    <TouchableOpacity onPress={toggleDarkMode} className="rounded-full ">
+                    <Ionicons name={darkMode ? "sunny" : "moon"} size={24} color={darkMode ? "white" : "black"} />
                     </TouchableOpacity> 
-            <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>  Dark Mode</Text> 
+            <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>  {darkMode ? "Light Mode" : "Dark Mode"}</Text> 
                 </View>
-                <View className='flex-row items-center mb-5'>
+                <View className='flex-row items-center mb-8'>
             <Ionicons name="star" size={24} color={darkMode ? "white" : "black"}/> 
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>  Rate App</Text> 
                 </View>
-                <View className='flex-row items-center mb-5'>
+                <View className='flex-row items-center mb-8'>
             <Ionicons name="share-social" size={24} color={darkMode ? "white" : "black"}/> 
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}>  Share App</Text> 
                 </View>
-                <View className='flex-row items-center mb-5'>
+                <View className='flex-row items-center mb-8'>
             <Ionicons name="lock-closed" size={24} color={darkMode ? "white" : "black"}/> 
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}> Privacy Policy</Text> 
                 </View>
-                <View className='flex-row items-center mb-5'>
+                <View className='flex-row items-center mb-8'>
             <Ionicons name="document-text" size={24} color={darkMode ? "white" : "black"}/> 
             <Text className={`text-[24px] ${darkMode ? "text-white" : "text-black"}`}> Terms and Conditions</Text> 
                 </View>

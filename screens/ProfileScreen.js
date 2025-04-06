@@ -13,7 +13,7 @@ const ProfileScreen = () =>{
         <SafeAreaView className={`flex-1 ${darkMode ? "bg-[#102F15]" : "bg-white"}`}>
             
             <View className="items-center">
-                <Text className="text-[24px] mb-5">Profile</Text>
+                <Text className={`text-[24px] mb-5 ${darkMode ? 'text-white' : 'text-black'}`}>Profile</Text>
                 <Image source={require('../assets/ishoowspeed.jpg')}
                  className='w-[150px] h-[150px] bg-[red] rounded-[75px] '/>
                 <Text className={`text-[20px] ${darkMode ? 'text-white' : 'text-black'}`}>Darren Watkins</Text>

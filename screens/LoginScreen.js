@@ -8,18 +8,13 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
     
-    const handleLogin = () => {
-        if (email === '' || password === '') {
-            Alert.alert('Error', 'Please fill in all fields');
-            return;
-        }
-
-        
-        if (email === '11' && password === '22') {
-            // Alert.alert('Success', 'Logged in successfully');
-            navigation.navigate('HomeTabs', { screen: 'Home' }); 
-        } else {
-            Alert.alert('Error', 'Invalid email or password');
+    const handleLogin = async () => {
+        const{data, error} = await supabase.auth.signInWithPassword({email,password});
+        if (error) {
+            Alert.alert('Login Failed', error.message);
+        }else{
+            Alert.alert('Succes!', 'Welcome back, ${data.user.email}');
+            navigation.navigate('HomeTabs', { screen: 'Home' });
         }
     };
     const SignIn = () => {
