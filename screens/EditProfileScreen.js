@@ -60,7 +60,7 @@ const EditProfileScreen = () => {
                 </View>
             </View>
             <View className="items-center p-5 w-full ">
-                <Text className="text-[20px] mb-2">Payment Methods</Text>
+                <Text className={`${darkMode ? 'text-white' : 'text-black'} text-[20px] mb-2`}>Payment Methods</Text>
 
                 {paymentMethods.map((method, index) => (
                 <TextInput

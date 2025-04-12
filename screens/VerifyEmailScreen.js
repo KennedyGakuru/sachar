@@ -1,16 +1,20 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import {SafeAreaView, Text, TouchableOpacity} from 'react-native';
 
 const VerifyEmailScreen = () => {
+    const navigation = useNavigation();
+    
     return(
-        <View className="items-center justify-between">
-            <Text className='text-[20px]'>Verify you Email!</Text>
-            <Text>
-                We've sent you an email with a confirmation link. Please check your inbox and verify your email before logging in.
+        <SafeAreaView className="flex-1 items-center justify-center">
+            <Text className='text-[24px] mt-10  text-bold'>Verify you Email!</Text>
+            <Text className="text-[20px] mb-10 mt-10 p-5">
+                We've sent you an email with a confirmation link.
+                 Please check your inbox and verify your email before logging in.
             </Text>
-            <TouchableOpacity className="h-[50px] bg-[#75F94C] rounded-[20px] justify-center">
-                <Text>Login</Text>
+            <TouchableOpacity className="h-[50px] bg-[#75F94C] w-[200px] rounded-[20px] justify-center items-center">
+                <Text className="text-[20px] text-white"   onPress={() => navigation.navigate("Login")}>Login</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     );
 };
 
