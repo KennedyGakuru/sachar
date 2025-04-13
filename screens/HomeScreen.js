@@ -5,6 +5,7 @@ import { categories,products,Colors } from '../constants';
 import { DarkModeContext } from '../components/DarkModeContext';
 import { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import RecommendationCards from '../components/RecommendationCards';
 
 const HomeScreen = () =>{
   const {darkMode } = useContext(DarkModeContext);
@@ -28,10 +29,7 @@ const HomeScreen = () =>{
              </TouchableOpacity>
             </View>
             </View>
-            <View className="items-center pb-4">
-            <View className="w-[360px] h-[120px] bg-[#ccffb3] rounded-[20px]">
-            </View>
-            </View>
+            <RecommendationCards/>
             <View className="flex-row justify-between px-4 pt-4 ">
               <Text className={`text-3xl ${darkMode ? "text-white" : "text-black"}`}>Categories</Text>
               <TouchableOpacity onPress={() => navigation.navigate('SeeAll')}>
