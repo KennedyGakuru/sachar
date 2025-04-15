@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useState,  } from 'react';
-import { View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, Alert, TouchableOpacity, Image } from 'react-native';
 import { supabase } from '../supabase';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -17,16 +17,22 @@ const LoginScreen = () => {
             Alert.alert('Login Failed', error.message);
         }else{
             Alert.alert('Succes!', 'Welcome back, ${data.user.email}');
-            navigation.navigate('HomeTabs', { screen: 'Home' });
+            navigation.replace('HomeTabs', { screen: 'Home' });
         }
     };
     const SignIn = () => {
-        navigation.navigate('SignUp');
+        navigation.replace('SignUp');
     }
 
     return (
-        <View className="flex-1 justify-center p-5 bg-white">
-            <Text className="text-2xl font-bold mb-5 text-center text-[#75F94C]">Login</Text>
+        <View className="flex-1 p-5 bg-white">
+            <View className="items-center justify-center">
+            <Image source={require('../assets/Sachar logo 4.png')}
+             className="w-[350px] h-[350px]"
+             resizeMode='contain'
+             />
+             </View>
+            <Text className="text-[24px] font-bold mb-5 text-center text-[#75F94C]">Login</Text>
             <TextInput
                 className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
                 placeholder="Email"
