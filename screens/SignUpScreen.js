@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, Alert, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../supabase';
 import { createUserProfile } from '../createUserProfile';
@@ -38,7 +38,7 @@ import { createUserProfile } from '../createUserProfile';
           
             try {
               await createUserProfile(user.id, fullName, phone);
-              navigation.navigate('VerifyEmail');
+              navigation.replace('VerifyEmail');
             } catch (err) {
               console.log('Error creating profile:', err);
               Alert.alert('Profile Error', 'Something went wrong creating your profile.');
@@ -47,7 +47,13 @@ import { createUserProfile } from '../createUserProfile';
           
 
         return (
-            <View className="flex-1 justify-center p-5 bg-white">
+            <View className="flex-1 p-5 bg-white">
+              <View className="items-center">
+                          <Image source={require('../assets/Sachar logo 4.png')}
+                           className="w-[300px] h-[300px]"
+                           resizeMode='contain'
+                           />
+                           </View>
                 <Text className="text-2xl font-bold mb-5 text-center text-[#75F94C]">Sign Up</Text>
                 <TextInput
                     className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
