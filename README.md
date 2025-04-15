@@ -33,5 +33,5 @@ Sachar (pronounced _Say-char_) is your one-stop shop for a smooth mobile shoppin
 
 ### 1. Clone the project
 ```bash
-git clone https://github.com/YOUR_USERNAME/sachar.git
+git clone https://github.com/KenGakuru2/sachar.git
 cd sachar
