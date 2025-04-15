@@ -48,11 +48,11 @@ const OnboardingScreen = () =>{
         <View className=" h-full items-center justify-center px-6">
             <Image
             source={item.image}
-            style={{width: 300, height: 300}}
+            style={{width: 350, height: 300}}
             resizeMode='contain'
             />
             <Text className="text-2xl  text-center mt-6 font-bold">{item.title}</Text>
-            <Text className="text-base text-gray-600 text-center mt-3">{item.description}</Text>
+            <Text className=" text-gray-600 text-center mt-3">{item.description}</Text>
         </View>
     );
     const Dot = ({ active }) => (
@@ -69,8 +69,8 @@ const OnboardingScreen = () =>{
     return(
         <View className="flex-1 bg-white">
             <StatusBar barStyle='dark-content' />
-            <TouchableOpacity onPress={handleSkip} className="absolute right-5 top-10 z-10">
-                <Text className="text-green-500 font-semibold">Skip</Text>
+            <TouchableOpacity onPress={handleSkip} className="absolute right-5 top-10 ">
+                <Text className="text-[#75F94C] font-semibold text-2xl">Skip</Text>
             </TouchableOpacity>
 
             <FlatList
@@ -94,7 +94,7 @@ const OnboardingScreen = () =>{
             <TouchableOpacity
             onPress={handleNext}
             className="bg-[#75F94C] mx-6 my-6 p-4  rounded-[20px]">
-                <Text className="text-white text-center font-boldtext-lg">
+                <Text className="text-white text-center font-bold text-2xl">
                     {currentIndex === slides.length -1 ? "Get Started" : "Next"}
                 </Text>
             </TouchableOpacity>
