@@ -10,6 +10,7 @@ import { createUserProfile } from '../createUserProfile';
         const [confirmPassword, setConfirmPassword] = useState('');
         const [fullName, setFullName] = useState('');
         const [phone, setPhone] = useState('');
+        const [showPassword, setShowPassword] = useState(false);
 
         const navigation = useNavigation();
 
@@ -63,20 +64,40 @@ import { createUserProfile } from '../createUserProfile';
                     keyboardType="email-address"
                     autoCapitalize="none"
                 />
-                <TextInput
-                    className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
-                    placeholder="Password"
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry
-                />
-                <TextInput
-                    className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChangeText={setConfirmPassword}
-                    secureTextEntry
-                />
+                <View className="h-10 flex-row items-center border border-gray-300 mb-2 px-3 rounded-[20px]">
+            <TextInput
+                className="flex-1 "
+                placeholder="Password"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+                
+            />
+            <TouchableOpacity onPress={()=> setShowPassword(!showPassword)}>
+                <Ionicons
+                 name={'eye'}
+                 size={20}
+                 color={showPassword ? "#75F94C" : 'gray'}
+                 />
+            </TouchableOpacity>
+            </View>
+            <View className="h-10 flex-row items-center border border-gray-300 mb-2 px-3 rounded-[20px]">
+            <TextInput
+                className="flex-1 "
+                placeholder="Password"
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                secureTextEntry={!showPassword}
+                
+            />
+            <TouchableOpacity onPress={()=> setShowPassword(!showPassword)}>
+                <Ionicons
+                 name={'eye'}
+                 size={20}
+                 color={showPassword ? "#75F94C" : 'gray'}
+                 />
+            </TouchableOpacity>
+            </View>
                 <TextInput
                     className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
                     placeholder="Full Name"
