@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TextInput, Button, Alert, TouchableOpacity, Image, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../supabase';
 import { createUserProfile } from '../createUserProfile';
+import { Ionicons } from '@expo/vector-icons';
 
  const SignUpScreen = () => {
         const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ import { createUserProfile } from '../createUserProfile';
         const [fullName, setFullName] = useState('');
         const [phone, setPhone] = useState('');
         const [showPassword, setShowPassword] = useState(false);
+        const [showConfirmPassword, setConfirmShowPassword] = useState(false);
 
         const navigation = useNavigation();
 
@@ -48,7 +50,14 @@ import { createUserProfile } from '../createUserProfile';
           
 
         return (
-            <View className="flex-1 p-5 bg-white">
+            
+              <KeyboardAvoidingView behavior='padding'
+              keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}
+              className="flex-1 p-10 ">
+                <ScrollView 
+                contentContainerStyle={{flexGrow:1}}
+                keyboardShouldPersistTaps="handled"
+                >
               <View className="items-center">
                           <Image source={require('../assets/Sachar logo 4.png')}
                            className="w-[300px] h-[300px]"
@@ -84,17 +93,17 @@ import { createUserProfile } from '../createUserProfile';
             <View className="h-10 flex-row items-center border border-gray-300 mb-2 px-3 rounded-[20px]">
             <TextInput
                 className="flex-1 "
-                placeholder="Password"
+                placeholder="Confirm Password"
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
-                secureTextEntry={!showPassword}
+                secureTextEntry={!showConfirmPassword}
                 
             />
-            <TouchableOpacity onPress={()=> setShowPassword(!showPassword)}>
+            <TouchableOpacity onPress={()=> setConfirmShowPassword(!showConfirmPassword)}>
                 <Ionicons
                  name={'eye'}
                  size={20}
-                 color={showPassword ? "#75F94C" : 'gray'}
+                 color={showConfirmPassword ? "#75F94C" : 'gray'}
                  />
             </TouchableOpacity>
             </View>
@@ -107,7 +116,7 @@ import { createUserProfile } from '../createUserProfile';
                 />
                 <TextInput
                     className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
-                    placeholder="phone"
+                    placeholder="Phone"
                     value={phone}
                     onChangeText={setPhone}
                     keyboardType='phone-pad'
@@ -115,7 +124,25 @@ import { createUserProfile } from '../createUserProfile';
                 <TouchableOpacity className="bg-[#75F94C] h-[50px] width-[50px] rounded-[20px] items-center justify-center " onPress={handleSignUp}>
                     <Text className="text-white items-center text-[20px]">SignUp</Text>
                 </TouchableOpacity>
-            </View>
+                <View className="flex-row items-center my-6">
+                      <View className="flex-1 h-px bg-gray-300"></View>
+                      <Text className="mx-4 text-gray-400">or</Text>
+                      <View className="flex-1 h-px bg-gray-300"></View>
+                    </View>
+                <View className="mt-6 flex-row justify-between">
+                  <TouchableOpacity className="px-6">
+                  <Ionicons name="logo-google" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                  <TouchableOpacity className="px-6">
+                    <Ionicons name="logo-apple" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                  <TouchableOpacity className="px-6">
+                  <Ionicons name="logo-facebook" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                </View>
+                </ScrollView>
+                </KeyboardAvoidingView>
+            
         );
     };
 
