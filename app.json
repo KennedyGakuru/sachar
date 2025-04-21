@@ -2,6 +2,7 @@
   "expo": {
     "name": "Sachar",
     "slug": "sachar",
+    "scheme": "sachar",
     "version": "1.0.0",
 
     "web": {
