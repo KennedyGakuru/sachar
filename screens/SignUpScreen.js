@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { supabase } from '../supabase';
 import { createUserProfile } from '../createUserProfile';
 import { Ionicons } from '@expo/vector-icons';
+import * as AuthSession from 'expo-auth-session';
 
  const SignUpScreen = () => {
         const [email, setEmail] = useState('');
@@ -45,6 +46,34 @@ import { Ionicons } from '@expo/vector-icons';
             } catch (err) {
               console.log('Error creating profile:', err);
               Alert.alert('Profile Error', 'Something went wrong creating your profile.');
+            }
+          };
+          const FACEBOOK_CLIENT_ID = "690086923575108";
+
+          const SignUpWithFacebook = async () => {
+            console.log('Facebook button tapped!'); 
+            const redirectUri = AuthSession.makeRedirectUri({
+              native: '',
+              useProxy: true,
+            });
+            console.log('Redirect URI:', redirectUri);
+            const authUrl=  `https://www.facebook.com/v18.0/dialog/oauth?client_id=${FACEBOOK_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=email,public_profile`;
+            
+            const result= await AuthSession.startAsync({ authUrl});
+
+            if (result.type === 'success'){
+              const accessToken = result.params.access_token;
+              const {data, error } = await supabase.auth.signInWithIdToken({
+                provider: 'facebook',
+                token: accessToken,
+              });
+              if (error) {
+                console.log('Supabase SignUp error:', error.message);
+              } else{
+                console.log('Signed Up!', data);
+              }
+            }else{
+              console.log('SignUp Failed:',result);
             }
           };
           
@@ -136,7 +165,7 @@ import { Ionicons } from '@expo/vector-icons';
                   <TouchableOpacity className="px-6">
                     <Ionicons name="logo-apple" size={35} color="gray"/> 
                   </TouchableOpacity>
-                  <TouchableOpacity className="px-6">
+                  <TouchableOpacity  onPress={SignUpWithFacebook} className="px-6">
                   <Ionicons name="logo-facebook" size={35} color="gray"/> 
                   </TouchableOpacity>
                 </View>
