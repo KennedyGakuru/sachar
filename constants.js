@@ -33,6 +33,42 @@ export const products = [
         image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
 
      },
+    { id: "7", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
+    { id: "8", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
+    { id: "9", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
+    { id: "10", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
+    { id: "11", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
+    { id: "12", 
+        name: "Phone", 
+        price: "699.99", 
+        image: "https://www.phoneplacekenya.com/wp-content/uploads/2024/03/Apple-iPhone-16-1.jpg"
+
+     },
 ]
 
 
