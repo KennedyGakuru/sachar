@@ -67,6 +67,22 @@ const LoginScreen = () => {
            <Text>Don't have an account? </Text>
            <Text onPress={SignIn} className="text-[#75F94C]"> SignUp</Text>
            </View>
+           <View className="flex-row items-center my-6">
+                      <View className="flex-1 h-px bg-gray-300"></View>
+                      <Text className="mx-4 text-gray-400">or</Text>
+                      <View className="flex-1 h-px bg-gray-300"></View>
+                    </View>
+                <View className="mt-6 flex-row justify-between">
+                  <TouchableOpacity className="px-6">
+                  <Ionicons name="logo-google" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                  <TouchableOpacity className="px-6">
+                    <Ionicons name="logo-apple" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                  <TouchableOpacity  className="px-6">
+                  <Ionicons name="logo-facebook" size={35} color="gray"/> 
+                  </TouchableOpacity>
+                </View>
         </View>
     );
 };
