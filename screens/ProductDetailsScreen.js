@@ -3,15 +3,16 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { addToFavorites, removeFromFavorites } from '../redux/favoriteSlice';
 import HeartIcon from '../components/HeartIcon';
-
+import { DarkModeContext } from '../components/DarkModeContext';
 
 
 
 const ProductDetailsScreen = () => {
     const route = useRoute();
+    const {darkMode } = useContext(DarkModeContext);
     const navigation = useNavigation();
     const { product } = route.params;
     const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const ProductDetailsScreen = () => {
    };
    
     return(
-        <SafeAreaView>
+        <SafeAreaView className={`flex-1 ${darkMode ? "bg-[#102F15]" : "bg-white"}`}>
             <View className="flex-row justify-between mx-4">
                 <TouchableOpacity onPress={() => navigation.goBack()} className="w-10 h-10 bg-[#75F94C] rounded-full flex items-center justify-center ">
                     <Ionicons name="arrow-back" size={24} color='white'/>
