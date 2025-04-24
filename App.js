@@ -21,6 +21,7 @@ import LoginScreen from './screens/LoginScreen';
 import VerifyEmailScreen from './screens/VerifyEmailScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
+import MapScreen from './screens/MapScreen';
 
 const Tab = createBottomTabNavigator ();
 const Stack = createStackNavigator ();
@@ -59,7 +60,7 @@ const App = () => {
     <Provider store={store}>
       <DarkModeProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Onboarding"> 
+          <Stack.Navigator initialRouteName="HomeTabs"> 
           <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
@@ -72,6 +73,7 @@ const App = () => {
             <Stack.Screen name="Settings" component={SettingsScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="SeeAll" component={SeeAllScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="Map" component={MapScreen} options={{ headerShown: false }}/>
           </Stack.Navigator>
         </NavigationContainer>
       </DarkModeProvider>
