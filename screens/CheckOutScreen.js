@@ -1,7 +1,7 @@
 import {SafeAreaView, Text, View, TouchableOpacity, Image} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { useContext, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'; 
 import { ScrollView } from 'react-native-gesture-handler';
 import * as Haptics from "expo-haptics";
@@ -10,8 +10,10 @@ import PaymentsCard from '../components/PaymentCard';
 
 const CheckOutScreen = () => {
     const navigation = useNavigation();
+    const route = useRoute();
     const {darkMode} = useContext(DarkModeContext);
     const [selectedMethod, setSelectedMethod] = useState(null);
+    const [shippingAddress, setShippingAddress] = useState(null);
     const cartItems = useSelector((state)=> state.cart.cartItems);
     const handlePress = (method) =>{
         setSelectedMethod(method);
@@ -25,6 +27,13 @@ const CheckOutScreen = () => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
         navigation.navigate('OrderPlaced');
     };
+    useEffect(() =>{
+        if (route?.params?.address) {
+            setShippingAddress(route.params.address);
+            
+            navigation.setParams({address: undefined});
+        }
+    }, [route?.params?.address]);
 
     return(
     <SafeAreaView className={`flex-1 ${darkMode ? "bg-[#102F15]" : "bg-white"}`}>
@@ -80,11 +89,13 @@ const CheckOutScreen = () => {
 
         <Text className={`text-[24px] mt-8 mx-5 mb-3 ${darkMode ? "text-white" : "text-black"}`}>Deliver to</Text>
         <View className='items-center'>
-        <TouchableOpacity className="bg-[#ccffb3] h-[50px] w-[350px] rounded-[10px] flex-row justify-between">
+        <TouchableOpacity onPress={()=> navigation.navigate('Map',{setShippingAddress})}
+        className="bg-[#ccffb3] h-[50px] w-[350px] rounded-[10px] flex-row justify-between">
             <View className="mt-4 mx-5">
             <Ionicons name='location' size={24} color="white"/>
             </View>
-            <Text className="text-[20px] mt-4">Add shipping Address</Text>
+            <Text className="text-[20px] mt-4">
+                {shippingAddress ? shippingAddress : 'Add shipping Address'}</Text>
             <View className="mt-4 mx-5">
             <Ionicons name='arrow-forward-circle' size={24} color="white" />
             </View>
@@ -95,14 +106,20 @@ const CheckOutScreen = () => {
         <PaymentsCard
         title="Mastercard"
         imageSource={require('../assets/mastercard-logo.png')}
+        isSelected={selectedMethod === "Mastercard"}
+        onSelect={setSelectedMethod}
         />
         <PaymentsCard
         title="Visa"
         imageSource={require('../assets/visa-logo-.png')}
+        isSelected={selectedMethod === 'Visa'}
+        onSelect={setSelectedMethod}
         />
         <PaymentsCard
         title="Apple Pay"
         imageSource={require('../assets/apple_pay-logo.png')}
+        isSelected={selectedMethod === "Apple Pay"}
+        onSelect={setSelectedMethod}
         />
         </View>
         <View className="items-center">
