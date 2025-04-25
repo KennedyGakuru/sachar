@@ -17,12 +17,12 @@
     "plugins": [],
 
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Sachar-logo-4.png",
 
     "userInterfaceStyle": "light",
 
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Sachar-logo-4.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
