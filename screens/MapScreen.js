@@ -1,14 +1,22 @@
 import {View,Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
+import { useDispatch } from 'react-redux';
+import { setShippingAddress } from '../redux/checkoutSlice';
 
 const MapScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+  
     const [region,setRegion]= useState({
         latitude: -1.2921, 
         longitude: 36.8219,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
     })
+    const handleSelectLocation = (location) =>{
+      dispatch(setShippingAddress(location));
+      navigation.goBack();
+    }
     return(
         <View className="flex-1">
             <MapView
@@ -27,15 +35,7 @@ const MapScreen = ({navigation}) => {
                 padding:15,
                 borderRadius: 10,
               }}   
-              onPress={() => {
-                navigation.navigate({
-                    name:"CheckOut",
-                    params:{
-                    address: `Lat: ${region.latitude.toFixed(4)}, Lng:${region.longitude.toFixed(4)}`,
-                },
-               merge: true,
-              });
-            }}
+              onPress={() => handleSelectLocation(myLocation)}
               >
                 <Text style={{color: 'white', fontSize: 18}}>Confirm Location</Text>
               </TouchableOpacity>
@@ -43,4 +43,4 @@ const MapScreen = ({navigation}) => {
     )
 };
 
-export default MapScreen;
+export default MapScreen;  
