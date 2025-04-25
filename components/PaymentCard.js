@@ -1,11 +1,10 @@
 import {TouchableOpacity, Text,Image} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
 
 const PaymentsCard = ({title,imageSource, isSelected, onSelect}) => {
     return(
         <TouchableOpacity   style={{height: 50, width: 350, borderRadius: 10,
-            backgroundColor: isSelected ? '#4CAF50' : '#CCFFB3', 
+            backgroundColor: '#CCFFB3', 
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
