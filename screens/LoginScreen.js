@@ -27,7 +27,7 @@ const LoginScreen = () => {
     return (
         <View className="flex-1 p-5 bg-white">
             <View className="items-center justify-center">
-            <Image source={require('../assets/Sachar logo 4.png')}
+            <Image source={require('../assets/Sachar-logo-4.png')}
              className="w-[350px] h-[350px]"
              resizeMode='contain'
              />
