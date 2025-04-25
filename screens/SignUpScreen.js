@@ -88,7 +88,7 @@ import * as AuthSession from 'expo-auth-session';
                 keyboardShouldPersistTaps="handled"
                 >
               <View className="items-center">
-                          <Image source={require('../assets/Sachar logo 4.png')}
+                          <Image source={require('../assets/Sachar-logo-4.png')}
                            className="w-[300px] h-[300px]"
                            resizeMode='contain'
                            />
