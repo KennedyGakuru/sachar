@@ -35,7 +35,7 @@ const MapScreen = ({navigation}) => {
                 padding:15,
                 borderRadius: 10,
               }}   
-              onPress={() => handleSelectLocation(myLocation)}
+              onPress={() => handleSelectLocation(region)}
               >
                 <Text style={{color: 'white', fontSize: 18}}>Confirm Location</Text>
               </TouchableOpacity>
