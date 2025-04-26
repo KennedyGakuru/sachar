@@ -13,7 +13,9 @@ const CheckOutScreen = () => {
     const route = useRoute();
     const {darkMode} = useContext(DarkModeContext);
     const [selectedMethod, setSelectedMethod] = useState(null);
-    const [shippingAddress, setShippingAddress] = useState(null);
+    
+    const shippingAddress = useSelector((state) => state.checkout.shippingAddress);
+
     const cartItems = useSelector((state)=> state.cart.cartItems);
     const handlePress = (method) =>{
         setSelectedMethod(method);
@@ -27,13 +29,7 @@ const CheckOutScreen = () => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
         navigation.navigate('OrderPlaced');
     };
-    useEffect(() =>{
-        if (route?.params?.address) {
-            setShippingAddress(route.params.address);
-            
-            navigation.setParams({address: undefined});
-        }
-    }, [route?.params?.address]);
+    
 
     return(
     <SafeAreaView className={`flex-1 ${darkMode ? "bg-[#102F15]" : "bg-white"}`}>
@@ -89,13 +85,21 @@ const CheckOutScreen = () => {
 
         <Text className={`text-[24px] mt-8 mx-5 mb-3 ${darkMode ? "text-white" : "text-black"}`}>Deliver to</Text>
         <View className='items-center'>
-        <TouchableOpacity onPress={()=> navigation.navigate('Map',{setShippingAddress})}
+        <TouchableOpacity onPress={()=> navigation.navigate('Map')}
         className="bg-[#ccffb3] h-[50px] w-[350px] rounded-[10px] flex-row justify-between">
             <View className="mt-4 mx-5">
             <Ionicons name='location' size={24} color="white"/>
             </View>
             <Text className="text-[20px] mt-4">
-                {shippingAddress ? shippingAddress : 'Add shipping Address'}</Text>
+            {shippingAddress ? (
+                  <Text>📍 Location Selected:
+                   {"\n"}Latitude: {shippingAddress.latitude}
+                   {"\n"}Longitude: {shippingAddress.longitude}
+                  </Text>
+                ) : (
+                <Text>📍 No location selected yet.</Text>
+                  )}
+                 </Text>
             <View className="mt-4 mx-5">
             <Ionicons name='arrow-forward-circle' size={24} color="white" />
             </View>
