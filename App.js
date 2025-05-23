@@ -60,7 +60,7 @@ const App = () => {
     <Provider store={store}>
       <DarkModeProvider>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="HomeTabs"> 
+          <Stack.Navigator initialRouteName="Onboarding"> 
           <Stack.Screen name="Onboarding" component={OnboardingScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="SignUp" component={SignUpScreen} options={{ headerShown: false }}/>
