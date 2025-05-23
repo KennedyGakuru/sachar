@@ -19,7 +19,7 @@
     "orientation": "portrait",
     "icon": "./assets/Sachar-logo-4.png",
 
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
 
     "splash": {
       "image": "./assets/Sachar-logo-4.png",
