@@ -56,7 +56,7 @@ import * as AuthSession from 'expo-auth-session';
               native: '',
               useProxy: true,
             });
-            console.log('Redirect URI:', redirectUri);
+            //console.log('Redirect URI:', redirectUri);
             const authUrl=  `https://www.facebook.com/v18.0/dialog/oauth?client_id=${FACEBOOK_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=email,public_profile`;
             
             const result= await AuthSession.startAsync({ authUrl});
