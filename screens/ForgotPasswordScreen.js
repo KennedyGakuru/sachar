@@ -15,7 +15,7 @@ const ForgotPasswordScreen = () => {
     return(
         <SafeAreaView className="flex-1">
             <View className="items-center">
-            <Text className="text-[20px] p-10 text-['#75F94C'] text-2xl font-bold">Forgot Password</Text>
+            <Text className="text-xlg p-10 text-['#75F94C'] text-2xl font-bold">Forgot Password</Text>
             </View>
             <TextInput
              className="h-10 border border-gray-300 mb-4 px-3 rounded-[20px]"
