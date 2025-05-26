@@ -83,7 +83,7 @@ const CheckOutScreen = () => {
     </View>
 </View>
 
-        <Text className={`text-[24px] mt-8 mx-5 mb-3 ${darkMode ? "text-white" : "text-black"}`}>Deliver to</Text>
+        <Text className={`text-2xl mt-8 mx-5 mb-3 ${darkMode ? "text-white" : "text-black"}`}>Deliver to</Text>
         <View className='items-center'>
         <TouchableOpacity onPress={()=> navigation.navigate('Map')}
         className="bg-[#ccffb3] h-[50px] w-[350px] rounded-[10px] flex-row justify-between">
