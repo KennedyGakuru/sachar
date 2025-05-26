@@ -12,7 +12,7 @@ const VerifyEmailScreen = () => {
                  Please check your inbox and verify your email before logging in.
             </Text>
             <TouchableOpacity className="h-[50px] bg-[#75F94C] w-[200px] rounded-[20px] justify-center items-center">
-                <Text className="text-[20px] text-white"   onPress={() => navigation.replace("Login")}>Login</Text>
+                <Text className="text-lg text-white"   onPress={() => navigation.replace("Login")}>Login</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
