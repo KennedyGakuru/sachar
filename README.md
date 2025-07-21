@@ -14,8 +14,8 @@ Sachar (pronounced _Say-char_) is your one-stop shop for a smooth mobile shoppin
 -  **Dark mode support** with a clean toggle UI
 -  **Add to cart**, **checkout**, and manage orders
 -  **Order summary**, payment screen, and receipt preview
--  **Clean architecture with modular folder structure
--  **Styled with **NativeWind** and `className` syntax
+-  Clean architecture with modular folder structure
+-  Styled with **NativeWind** and `className` syntax
 
 ---
 
